@@ -16,7 +16,7 @@
         {
             System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo
             {
-                FileName = "https://github.com/welcometopwn/RustCodeRaid",
+                FileName = "https://github.com/welcometopwn/rust-code-raid",
                 UseShellExecute = true
             };
             System.Diagnostics.Process.Start(psi);
