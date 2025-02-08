@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeRaid", "CodeRaid.csproj", "{0F57BDA0-25BC-4DBF-93FD-4030011C57D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F57BDA0-25BC-4DBF-93FD-4030011C57D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F57BDA0-25BC-4DBF-93FD-4030011C57D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F57BDA0-25BC-4DBF-93FD-4030011C57D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F57BDA0-25BC-4DBF-93FD-4030011C57D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3E5533F-252C-4CFD-88F6-8D2025E8BBE0}
+	EndGlobalSection
+EndGlobal
