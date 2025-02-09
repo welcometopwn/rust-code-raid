@@ -109,6 +109,16 @@ public partial class Main : Form
 
         int vkCode = Marshal.ReadInt32(lParam);
 
+        // handle backspace
+        if (vkCode == (int)Keys.Back)
+        {
+            _typedNumber = ""; // reset input
+            current_code.SelectionStart = 0;
+            current_code.SelectionLength = current_code.Text.Length;
+            current_code.SelectionColor = Color.Gray; // reset color
+            return CallNextHookEx(_hookId, nCode, wParam, lParam);
+        }
+
         char keyPressed;
 
         // check if numpad key
@@ -144,7 +154,7 @@ public partial class Main : Form
             _typedNumber = "";
             current_code.SelectionStart = 0;
             current_code.SelectionLength = current_code.Text.Length;
-            current_code.SelectionColor = Color.Gray; // reset color to gray
+            current_code.SelectionColor = Color.Gray; // reset color
         }
         else
         {
@@ -156,6 +166,7 @@ public partial class Main : Form
 
         return CallNextHookEx(_hookId, nCode, wParam, lParam);
     }
+
 
     private static List<string> LoadNumbersFromJson(string filePath)
     {
