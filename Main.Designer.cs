@@ -75,11 +75,11 @@
             // l_line
             // 
             l_line.AutoSize = true;
-            l_line.Location = new Point(8, 114);
+            l_line.Location = new Point(4, 114);
             l_line.Name = "l_line";
-            l_line.Size = new Size(29, 15);
+            l_line.Size = new Size(35, 15);
             l_line.TabIndex = 5;
-            l_line.Text = "Line";
+            l_line.Text = "Code";
             // 
             // l_line_amount
             // 
@@ -142,7 +142,7 @@
             // opacityToolStripMenuItem
             // 
             opacityToolStripMenuItem.Name = "opacityToolStripMenuItem";
-            opacityToolStripMenuItem.Size = new Size(180, 22);
+            opacityToolStripMenuItem.Size = new Size(115, 22);
             opacityToolStripMenuItem.Text = "Opacity";
             opacityToolStripMenuItem.Click += opacityToolStripMenuItem_Click;
             // 
@@ -156,7 +156,7 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Size = new Size(107, 22);
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 

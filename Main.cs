@@ -61,7 +61,6 @@ public partial class Main : Form
         e.SuppressKeyPress = true;
     }
 
-    // Importing necessary functions and structures from user32.dll
     [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
     private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
 
@@ -81,16 +80,15 @@ public partial class Main : Form
 
     private void Main_FormClosing(object sender, FormClosingEventArgs e)
     {
-        // Get a reference to the main form
         Main mainForm = Application.OpenForms.OfType<Main>().FirstOrDefault();
         double opacity = 1.0;
         if (mainForm != null)
         {
-            // Get the opacity of the main form
+            // get the opacity of the main form
             opacity = mainForm.Opacity;
         }
 
-        // Save the current line number and opacity to the settings.conf file
+        // save the current line number and opacity to the settings.conf file
         string settings = $"line={_currentIndex + 1}\nopacity={opacity.ToString(CultureInfo.InvariantCulture)}";
         File.WriteAllText(configFile, settings);
 
@@ -106,12 +104,27 @@ public partial class Main : Form
 
     private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
     {
-        if (nCode < 0 || wParam != WM_KEYDOWN) return CallNextHookEx(_hookId, nCode, wParam, lParam);
-        var vkCode = Marshal.ReadInt32(lParam);
-        var keyPressed = (char)vkCode;
+        if (nCode < 0 || wParam != (IntPtr)WM_KEYDOWN)
+            return CallNextHookEx(_hookId, nCode, wParam, lParam);
 
-        // Check if the pressed key is a digit
-        if (!char.IsDigit(keyPressed)) return CallNextHookEx(_hookId, nCode, wParam, lParam);
+        int vkCode = Marshal.ReadInt32(lParam);
+
+        char keyPressed;
+
+        // check if numpad key
+        if (vkCode >= (int)Keys.NumPad0 && vkCode <= (int)Keys.NumPad9)
+        {
+            keyPressed = (char)('0' + (vkCode - (int)Keys.NumPad0)); // convert numpad keys to 0-9
+        }
+        else
+        {
+            keyPressed = (char)vkCode; // standard number keys
+        }
+
+        // check if the pressed key is a digit
+        if (!char.IsDigit(keyPressed))
+            return CallNextHookEx(_hookId, nCode, wParam, lParam);
+
         if (_typedNumber.Length < _numbers[_currentIndex].Length)
             _typedNumber += keyPressed;
         else
